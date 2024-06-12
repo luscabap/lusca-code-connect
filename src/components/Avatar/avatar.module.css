@@ -1,0 +1,16 @@
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.container__itens{
+  list-style-type: none;
+}
+
+.item__texto{
+  font-weight: 600;
+  font-size: 15px;
+  color: #888888
+}

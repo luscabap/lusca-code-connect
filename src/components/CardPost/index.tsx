@@ -25,7 +25,7 @@ export const CardPost = ({ imageCover, titulo, descricao, author}: ICardPostProp
         </figure>
       </header>
       <section className={styles.containerInfos}>
-        <main>
+        <main className={styles.containerInfos__txt}>
           <h1 className={styles.containerInfos__titulo}>{titulo}</h1>
           <p className={styles.containerInfos__descricao}>{descricao}</p>
           <p className={styles.containerInfos__detalhes}>Ver detalhes</p>

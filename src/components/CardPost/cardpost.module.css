@@ -4,7 +4,6 @@
 }
 
 .headerCard {
-  width: 100%;
   background-color: #888888;
   border-radius: 8px 8px 0 0;
   gap: 8px;
@@ -26,18 +25,27 @@
   flex-direction: column;
   background-color: #171D1F;
   border-radius: 0 0 8px 8px;
+  justify-content: space-between;
+}
+
+.containerInfos__txt{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .containerInfos__titulo{
   color: #BCBCBC;
   font-weight: 600;
   font-size: 18px;
+  margin: 0;
 }
 
 .containerInfos__descricao{
   color: #BCBCBC;
   font-weight: 400;
   font-size: 15px;
+  margin: 0;
 }
 
 .containerInfos__detalhes{
@@ -46,4 +54,5 @@
   font-weight: 400;
   text-decoration: underline;
   cursor: pointer;
+  margin: 0;
 }

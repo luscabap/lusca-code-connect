@@ -12,12 +12,16 @@ interface ICardPostProps {
   author: AuthorProps
 }
 
+const imageCoverStyle = {
+  borderRadius: "8px"
+}
+
 export const CardPost = ({ imageCover, titulo, descricao, author}: ICardPostProps) => {
   return (
     <article className={styles.container}>
       <header className={styles.headerCard}>
         <figure className={styles.containerImgCover}>
-          <Image src={imageCover} alt={`Capa do posto de titulo: ${titulo}`} fill={true}/>
+          <Image src={imageCover} alt={`Capa do posto de titulo: ${titulo}`} fill={true} style={imageCoverStyle}/>
         </figure>
       </header>
       <section className={styles.containerInfos}>

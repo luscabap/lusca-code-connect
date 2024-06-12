@@ -17,7 +17,6 @@
   position: relative;
   width: 438px;
   height: 133px;
-  border-radius: 8px;
 }
 
 .containerInfos{
@@ -47,8 +46,4 @@
   font-weight: 400;
   text-decoration: underline;
   cursor: pointer;
-}
-
-.containerAvatar{
-  
 }

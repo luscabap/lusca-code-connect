@@ -5,7 +5,7 @@ import Image from "next/image";
 export const Aside = () => {
   return (
     <aside className={styles.container}>
-      <Image src={logo} alt="Logo do Code Connect"/>
+      <Image src={logo} alt="Logo do Code Connect" width={128} height={40}/>
     </aside>
   )
 }

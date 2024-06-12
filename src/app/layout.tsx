@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import './globals.css';
 import { Aside } from "@/components/Aside";
+import { Prompt } from "next/font/google"
+
+const prompt = Prompt({
+  weight: ["400", "600", "700"],
+  subsets: ['latin'],
+  display: "swap"
+})
 
 export const metadata: Metadata = {
   title: "Code Connect",
@@ -13,10 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
+    <html lang="pt-br" className={prompt.className}>
       <body>
-        <Aside />
-        {children}
+        <div className="app-container">
+          <Aside />
+          {children}
+        </div>
       </body>
     </html>
   );

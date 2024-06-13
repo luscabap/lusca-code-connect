@@ -1,0 +1,17 @@
+.container {
+  width: 996px;
+}
+
+.containerCards{
+  display: grid;
+  width: 100%;
+  grid-template-areas:
+  "article article";
+  justify-content: space-between;
+  gap: 24px;
+  /* display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px; */
+}

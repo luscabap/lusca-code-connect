@@ -1,11 +1,14 @@
 import { CardPost } from "@/components/CardPost";
+import logger from "@/logger";
 import { Post } from "@/types/Post";
 
 async function getAllPosts(): Promise<Post[]> {
   const response = await fetch("http://localhost:3042/posts");
   if(!response.ok){
-    console.log("Ops, algo deu errado")
+    logger.error("Ops, algo deu errado");
+    return []
   }
+  logger.info("Posts obtidos com sucesso!")
   return response.json();
 }
 

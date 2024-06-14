@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import './globals.css';
 import { Aside } from "@/components/Aside";
 import { Prompt } from "next/font/google"
+import { Pesquisa } from "@/components/Pesquisa";
 
 const prompt = Prompt({
   weight: ["400", "600", "700"],
@@ -24,7 +25,10 @@ export default function RootLayout({
       <body>
         <div className="app-container">
           <Aside />
-          {children}
+          <div>
+            <Pesquisa textoBotao="Buscar" textoInput="Digite o que você procura"/>
+            {children}
+          </div>
         </div>
       </body>
     </html>

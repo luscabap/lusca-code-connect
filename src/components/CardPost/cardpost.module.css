@@ -1,3 +1,5 @@
+
+
 .container {
   width: 486px;
 }
@@ -47,11 +49,16 @@
   margin: 0;
 }
 
-.containerInfos__detalhes{
+.link{
+  text-decoration: none;
+  cursor: pointer;
   color: #81FE88;
   font-size: 18px;
   font-weight: 400;
   text-decoration: underline;
   cursor: pointer;
   margin: 0;
+  background-color: transparent;
+  outline: none;
+  border: none;
 }

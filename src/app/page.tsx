@@ -34,7 +34,6 @@ export default async function Home({ searchParams }: IHomePageProps) {
   const { data: posts, prev, next } = await getAllPosts(currentPage);
   return (
     <main className={styles.container}>
-      <Pesquisa textoBotao="Buscar" textoInput="Digite o que você procura"/>
       <div className={styles.containerCards}>
         { posts.map(post => <CardPost 
           key={post.id}

@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+.container{
+  min-height: 100vh;
+}
+
+.containerImg{
+  background-color: #848484;
+  width: 100%;
+  height: 348px;
+  padding: 24px 16px;
+  border-radius: 8px 8px 0 0;
+}
+
+.img{
+  border-radius: 8px;
+}
+
+.containerInfos{
+  background-color: #171D1F;
+  height: 198px;
+  border-radius: 0 0 8px 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.titulo{
+  font-weight: 600;
+  font-size: 22px;
+  color: #BCBCBC;
+}
+
+.descricao {
+  font-weight: 400;
+  font-size: 15px;
+  color: #BCBCBC;
+}
+
+.containerAutor{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.authorName{
+  font-weight: 600;
+  font-size: 15px;
+  color: #888888;
+}
+
+.tituloSec{
+  color: #888888;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.containerCodigo{
+  background-color: #171D1F;
+  height: 252px;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.codigo{
+  font-family: "Roboto Mono", monospace;
+  color: #BCBCBC;
+  font-size: 15px;
+}

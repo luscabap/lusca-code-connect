@@ -11,17 +11,6 @@ interface IResponseProps {
   next: number | null
 }
 
-type teste = {
-  page: string,
-  teste: string
-}
-
-interface IHomePageProps {
-  searchParams: string | undefined | {
-    page: string
-  }
-}
-
 async function getAllPosts(page: number): Promise<IResponseProps> {
   const response = await fetch(`http://localhost:3042/posts?_page=${page}&_per_page=6`);
   if(!response.ok){
@@ -30,6 +19,14 @@ async function getAllPosts(page: number): Promise<IResponseProps> {
   }
   logger.info("Posts obtidos com sucesso!")
   return response.json();
+}
+
+type SearchParamsProps = {
+  page?: number;
+}
+
+interface IHomePageProps{
+  searchParams: SearchParamsProps;
 }
 
 export default async function Home({ searchParams }: IHomePageProps) {

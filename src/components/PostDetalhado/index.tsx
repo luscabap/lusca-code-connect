@@ -23,7 +23,7 @@ const PostDetalhado = ({ cover, title, body, author, markdown }: Post) => {
       <div className={styles.containerSecundario}>
         <h2 className={styles.tituloSec}>Código:</h2>
         <div className={styles.containerCodigo}>
-          <p className={styles.codigo}>{markdown}</p>
+          <div dangerouslySetInnerHTML={{ __html: markdown }} className={styles.codigo}/>
         </div>
       </div>
     </div>

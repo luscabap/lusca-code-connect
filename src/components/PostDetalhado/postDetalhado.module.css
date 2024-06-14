@@ -58,9 +58,11 @@
 
 .containerCodigo{
   background-color: #171D1F;
-  height: 252px;
+  max-height: 250px;
   border-radius: 8px;
   padding: 16px;
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.24);
+  overflow-y: scroll;
 }
 
 .codigo{

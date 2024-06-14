@@ -1,5 +1,8 @@
 .container {
   width: 996px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .containerCards{
@@ -9,9 +12,17 @@
   "article article";
   justify-content: space-between;
   gap: 24px;
+  flex-wrap: wrap;
   /* display: flex;
   width: 100%;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 24px; */
+}
+
+.linkPagina{
+  color: #BFFFC3;
+  font-size: 18px;
+  text-align: center;
+  display: block;
 }

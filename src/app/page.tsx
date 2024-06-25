@@ -4,21 +4,24 @@ import logger from "@/logger";
 import { Post } from "@/types/Post";
 import styles from "./page.module.css"
 import Link from "next/link";
+import db from "../../prisma/db";
 
 interface IResponseProps {
-  data: Post[],
+  data: Post[] | [],
   prev: number | null,
   next: number | null
 }
 
 async function getAllPosts(page: number): Promise<IResponseProps> {
-  const response = await fetch(`http://localhost:3042/posts?_page=${page}&_per_page=6`);
-  if(!response.ok){
-    logger.error("Ops, algo deu errado");
+  try {
+    const posts = await db.post.findMany({
+      include: { author: true }
+    });
+    return { data: posts, prev: null, next: null }
+  } catch (error) {
+    logger.error("Falha ao obter posts", { error });
     return { data: [], prev: null, next: null }
   }
-  logger.info("Posts obtidos com sucesso!")
-  return response.json();
 }
 
 type SearchParamsProps = {

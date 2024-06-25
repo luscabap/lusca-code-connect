@@ -14,10 +14,22 @@ interface IResponseProps {
 
 async function getAllPosts(page: number): Promise<IResponseProps> {
   try {
+    const postsPerPage = 6;
+    const skip = (page - 1) * postsPerPage;
+
+    const totalItems = await db.post.count();
+    const totalPages = Math.ceil(totalItems / postsPerPage);
+
+    const prev = page > 1 ? page - 1 : null;
+    const next = page < totalPages ? page + 1 : null;
+
     const posts = await db.post.findMany({
+      take: postsPerPage,
+      skip,
+      orderBy: { createdAt: "desc" },
       include: { author: true }
     });
-    return { data: posts, prev: null, next: null }
+    return { data: posts, prev, next }
   } catch (error) {
     logger.error("Falha ao obter posts", { error });
     return { data: [], prev: null, next: null }
@@ -33,7 +45,7 @@ interface IHomePageProps{
 }
 
 export default async function Home({ searchParams }: IHomePageProps) {
-  const currentPage = searchParams?.page || 1;
+  const currentPage = Number(searchParams?.page || 1);
   const { data: posts, prev, next } = await getAllPosts(currentPage);
   return (
     <main className={styles.container}>

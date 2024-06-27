@@ -6,15 +6,12 @@ import styles from "./page.module.css"
 import Link from "next/link";
 import db from "../../prisma/db";
 import { Prisma } from '@prisma/client'
+import { TermoPesquisa } from "@/components/TermoPesquisa";
 
 interface IResponseProps {
   data: Post[] | [],
   prev: number | null,
   next: number | null
-}
-
-type WhereProps = {
-  title?: string
 }
 
 async function getAllPosts(page: number, searchTerm: string | undefined): Promise<IResponseProps> {
@@ -50,7 +47,7 @@ async function getAllPosts(page: number, searchTerm: string | undefined): Promis
     });
     return { data: posts, prev, next }
   } catch (error) {
-    logger.error("Falha ao obter posts", { error });
+    logger.error("Falha ao obter posts teste", { error });
     return { data: [], prev: null, next: null }
   }
 }
@@ -68,8 +65,14 @@ export default async function Home({ searchParams }: IHomePageProps) {
   const currentPage = Number(searchParams?.page || "1");
   const searchTerm = searchParams?.q;
   const { data: posts, prev, next } = await getAllPosts(currentPage, searchTerm);
+
   return (
     <main className={styles.container}>
+      {
+        searchTerm && (
+          posts.length === 0 ? <TermoPesquisa termo={searchTerm} termoEncontrado={false}/> : <TermoPesquisa termo={searchTerm} termoEncontrado={true} />
+        )
+      }
       <div className={styles.containerCards}>
         { posts.map(post => <CardPost 
           key={post.id}

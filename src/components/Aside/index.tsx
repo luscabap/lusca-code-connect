@@ -8,7 +8,9 @@ export const Aside = () => {
   const navigate = useRouter();
   return (
     <aside className={styles.container}>
-      <Image src={logo} alt="Logo do Code Connect" width={128} height={40} onClick={() => navigate.push("/")} className={styles.logo}/>
+      <a href={"/"} >
+        <Image src={logo} alt="Logo do Code Connect" width={128} height={40} />
+      </a>
     </aside>
   )
 }

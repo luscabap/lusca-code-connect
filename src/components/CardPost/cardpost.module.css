@@ -1,5 +1,3 @@
-
-
 .container {
   width: 486px;
 }
@@ -61,4 +59,14 @@
   background-color: transparent;
   outline: none;
   border: none;
+}
+
+@media screen and (min-width: 320px) and (max-width: 425px){
+  .container {
+    width: 80%;
+  }
+
+  .containerInfos{
+    height: 320px;
+  }
 }

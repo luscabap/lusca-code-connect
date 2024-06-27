@@ -19,7 +19,7 @@ const imageCoverStyle = {
 
 export const CardPost = ({ imageCover, titulo, descricao, author, slug}: ICardPostProps) => {
   return (
-      <article className={styles.container}>
+    <article className={styles.container}>
       <header className={styles.headerCard}>
         <figure className={styles.containerImgCover}>
           <Image src={imageCover} alt={`Capa do posto de titulo: ${titulo}`} fill={true} style={imageCoverStyle}/>

@@ -6,8 +6,10 @@ const PostDetalhado = ({ cover, title, body, author, markdown }: Post) => {
   return (
     <div className={styles.container}>
       <article>
-        <header className={styles.containerImg}>
-          <Image src={cover} alt={`Imagem de fundo do post do(a) autor(a) ${author.username}`} width={961} height={300} className={styles.img}/>
+        <header className={styles.containerHeader}>
+          <div className={styles.containerImg}>
+            <Image src={cover} alt={`Imagem de fundo do post do(a) autor(a) ${author.username}`} fill={true} className={styles.img}/>
+          </div>
         </header>
         <div className={styles.containerInfos}>
           <main className={styles.containerTxt}>

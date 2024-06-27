@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from "next/navigation";
 import styles from "./aside.module.css";
-import logo from "./logo.png";
+import logo from "@/assets/logo.png";
 import Image from "next/image";
 
 export const Aside = () => {

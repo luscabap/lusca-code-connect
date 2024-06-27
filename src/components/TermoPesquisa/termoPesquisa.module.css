@@ -6,3 +6,9 @@
 .termoPesquisa{
   color: #BFFFC3;
 }
+
+@media screen and (min-width: 320px) and (max-width: 425px){
+  .containerPesquisa{
+    padding: 0 1rem;
+  }
+}

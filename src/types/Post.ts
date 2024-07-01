@@ -7,5 +7,6 @@ export type Post = {
   slug: string,
   body: string,
   markdown: string,
-  author: AuthorProps
+  author: AuthorProps,
+  likes: number
 }

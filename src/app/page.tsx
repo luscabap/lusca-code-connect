@@ -42,7 +42,7 @@ async function getAllPosts(page: number, searchTerm: string | undefined): Promis
       take: postsPerPage,
       skip,
       where,
-      orderBy: { createdAt: "desc" },
+      orderBy: { id: "desc" },
       include: { author: true }
     });
     return { data: posts, prev, next }
@@ -76,12 +76,7 @@ export default async function Home({ searchParams }: IHomePageProps) {
       <div className={styles.containerCards}>
         { posts.map(post => <CardPost 
           key={post.id}
-          id={post.id}
-          imageCover={post.cover}
-          titulo={post.title}
-          slug={post.slug}
-          descricao={post.body}
-          author={post.author}
+          post={post}
         />) }
       </div>
       <div className={styles.containerLinks}>

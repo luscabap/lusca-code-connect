@@ -3,6 +3,7 @@
 import { Post } from "@/types/Post";
 import db from "../../prisma/db";
 import { Prisma } from "@prisma/client";
+import { revalidatePath } from "next/cache";
 
 export async function incrementThumbsUp(post: Post){
 
@@ -16,4 +17,7 @@ export async function incrementThumbsUp(post: Post){
       }
     }
   })
+
+  revalidatePath("/")
+  revalidatePath(`/${post.slug}`)
 }

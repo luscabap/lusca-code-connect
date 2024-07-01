@@ -1,6 +1,7 @@
+import React from "react";
 import styles from "./iconButton.module.css";
 
-interface IIConButtonProps {
+interface IIConButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
   children: JSX.Element,
 }
 

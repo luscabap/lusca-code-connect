@@ -1,11 +1,10 @@
+import { incrementThumbsUp } from "@/actions";
 import { Post } from "@/types/Post";
 import Image from "next/image";
 import Link from "next/link";
 import { Avatar } from "../Avatar";
-import { IconButton } from "../IconButton";
-import { ThumbsUp } from "../icons/ThumbsUp";
+import { ThumbsUpButton } from "./ThumbsUpButton";
 import styles from "./cardpost.module.css";
-import { incrementThumbsUp } from "@/actions";
 
 interface ICardProps {
   post: Post
@@ -35,9 +34,7 @@ export const CardPost = ({ post }: ICardProps) => {
         <footer className={styles.containerFooter}>
           <div>
             <form action={submitThumbsUp} className={styles.containerLikes}>
-              <IconButton>
-                <ThumbsUp />
-              </IconButton>
+              <ThumbsUpButton />
               <p className={styles.numLikes}>
                 {post.likes}
               </p>

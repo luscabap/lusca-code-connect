@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Avatar } from "../Avatar";
 import { ThumbsUpButton } from "./ThumbsUpButton";
 import styles from "./cardpost.module.css";
+import { ModalComment } from "../ModalComment";
 
 interface ICardProps {
   post: Post
@@ -16,6 +17,7 @@ const imageCoverStyle = {
 
 export const CardPost = ({ post }: ICardProps) => {
   const submitThumbsUp = incrementThumbsUp.bind(null, post);
+
   return (
     <article className={styles.container}>
       <header className={styles.headerCard}>
@@ -39,6 +41,10 @@ export const CardPost = ({ post }: ICardProps) => {
                 {post.likes}
               </p>
             </form>
+            <div>
+              <ModalComment />
+              <p>{post.comments.length}</p>
+            </div>
           </div>
           <Avatar 
             imageSrc={post.author.avatar}

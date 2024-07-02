@@ -13,6 +13,12 @@ body {
   min-height: 100vh;
 }
 
+
+::backdrop {
+  background-color: #171D1F;
+  opacity: 0.8;
+}
+
 @media screen and (min-width: 320px) and (max-width: 425px){
   .app-container{
     max-width: 100%;

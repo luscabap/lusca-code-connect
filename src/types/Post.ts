@@ -1,4 +1,5 @@
 import { AuthorProps } from "./AuthorProps"
+import { CommentsProps } from "./CommentsProps"
 
 export type Post = {
   id: number,
@@ -8,5 +9,6 @@ export type Post = {
   body: string,
   markdown: string,
   author: AuthorProps,
-  likes: number
+  likes: number,
+  comments: CommentsProps[]
 }

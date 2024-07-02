@@ -1,12 +1,11 @@
 import { CardPost } from "@/components/CardPost";
-import { Pesquisa } from "@/components/Pesquisa";
+import { TermoPesquisa } from "@/components/TermoPesquisa";
 import logger from "@/logger";
 import { Post } from "@/types/Post";
-import styles from "./page.module.css"
+import { Prisma } from '@prisma/client';
 import Link from "next/link";
 import db from "../../prisma/db";
-import { Prisma } from '@prisma/client'
-import { TermoPesquisa } from "@/components/TermoPesquisa";
+import styles from "./page.module.css";
 
 interface IResponseProps {
   data: Post[] | [],
@@ -43,7 +42,10 @@ async function getAllPosts(page: number, searchTerm: string | undefined): Promis
       skip,
       where,
       orderBy: { id: "desc" },
-      include: { author: true }
+      include: { 
+        author: true,
+        comments: true
+      }
     });
     return { data: posts, prev, next }
   } catch (error) {

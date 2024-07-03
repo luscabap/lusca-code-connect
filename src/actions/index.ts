@@ -21,3 +21,22 @@ export async function incrementThumbsUp(post: Post){
   revalidatePath("/")
   revalidatePath(`/${post.slug}`)
 }
+
+export async function postComment(post: Post, formData: HTMLFormElement){
+  const author = await db.user.findFirst({
+    where: {
+      username: 'anabeatriz_dev'
+    }
+  })
+
+  await db.comment.create({
+    data: {
+      text: formData.get('text'),
+      authorId: author!.id,
+      postId: post.id
+    }
+  })
+
+  revalidatePath("/")
+  revalidatePath(`/${post.slug}`)
+}

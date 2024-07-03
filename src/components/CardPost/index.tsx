@@ -1,4 +1,4 @@
-import { incrementThumbsUp } from "@/actions";
+import { incrementThumbsUp, postComment } from "@/actions";
 import { Post } from "@/types/Post";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,6 +17,7 @@ const imageCoverStyle = {
 
 export const CardPost = ({ post }: ICardProps) => {
   const submitThumbsUp = incrementThumbsUp.bind(null, post);
+  const submitComment = postComment.bind(null, post);
 
   return (
     <article className={styles.container}>
@@ -34,16 +35,18 @@ export const CardPost = ({ post }: ICardProps) => {
           </Link>
         </main>
         <footer className={styles.containerFooter}>
-          <div>
+          <div className={styles.containerAcoes}>
             <form action={submitThumbsUp} className={styles.containerLikes}>
               <ThumbsUpButton />
-              <p className={styles.numLikes}>
+              <p className={styles.numAcoes}>
                 {post.likes}
               </p>
             </form>
-            <div>
-              <ModalComment />
-              <p>{post.comments.length}</p>
+            <div className={styles.containerComment}>
+              <ModalComment action={submitComment}/>
+              <p className={styles.numAcoes}>
+                {post.comments.length}
+              </p>
             </div>
           </div>
           <Avatar 

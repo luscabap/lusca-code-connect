@@ -4,7 +4,7 @@
   padding: 24px;
   width: 961px;
   max-width: 80%;
-  height: 333px;
+  height: 370px;
   border: none;
 }
 
@@ -23,32 +23,4 @@
 .subtitulo{
   font-size: 31px;
   color: #81FE88;
-}
-
-.input{
-  background-color: #BCBCBC;
-  border: none;
-  width: 100%;
-  padding: 16px;
-  border-radius: 8px;
-  font-size: 18px;
-  color: #3E3E3F;
-  text-align: start;
-}
-
-.containerFooter{
-  text-align: right;
-}
-
-.botaoComentar{
-  background-color: #81FE88;
-  width: 144px;
-  height: 51px;
-  border-radius: 8px;
-  padding: 12px 16px;
-  border: none;
-  color: #132E35;
-  font-size: 18px;
-  font-weight: 600;
-  text-align: center;
 }

@@ -1,0 +1,17 @@
+.botaoUsuario{
+  background-color: #81FE88;
+  width: 144px;
+  height: 51px;
+  border-radius: 8px;
+  padding: 12px 16px;
+  border: none;
+  color: #132E35;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 8px;
+}

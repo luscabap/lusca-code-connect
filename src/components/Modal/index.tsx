@@ -35,12 +35,8 @@ export const Modal = forwardRef(({ children }: IModalProps, ref) => {
       </header>
       <main>
         <h2 className={styles.subtitulo}>Deixe seu comentário sobre o post:</h2>
-        <input type="text" placeholder="Digite seu comentário" className={styles.input}/>
         {children}
       </main>
-      <footer className={styles.containerFooter}>
-        <button className={styles.botaoComentar}>Comentar &gt;</button>
-      </footer>
     </dialog>
   )
 })

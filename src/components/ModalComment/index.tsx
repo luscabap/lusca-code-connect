@@ -13,7 +13,7 @@ interface useRefModalComment {
 }
 
 interface IModalCommentProps {
-  action: (formData: HTMLFormElement) => Promise<void>
+  action: (formData: FormData) => Promise<void>
 }
 
 

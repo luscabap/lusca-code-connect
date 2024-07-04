@@ -50,6 +50,7 @@ async function getAllPosts(page: number, searchTerm: string | undefined): Promis
     return { data: posts, prev, next }
   } catch (error) {
     logger.error("Falha ao obter posts teste", { error });
+    console.log("ERRO", error)
     return { data: [], prev: null, next: null }
   }
 }

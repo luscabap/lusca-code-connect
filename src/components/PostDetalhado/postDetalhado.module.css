@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 .container{
-  min-height: 100vh;
+  margin-bottom: 40px;
 }
 
 .containerHeader{
@@ -43,10 +43,10 @@
   color: #BCBCBC;
 }
 
-.containerAutor{
+.containerFooter{
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 8px;
 }
 
@@ -75,6 +75,34 @@
   font-family: "Roboto Mono", monospace;
   color: #BCBCBC;
   font-size: 15px;
+}
+
+.containerAcoes{
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerAcao{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.numExibido {
+  margin: 0;
+  color: #888888;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22.5px;
+}
+
+.containerAutor{
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 425px){

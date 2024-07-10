@@ -1,0 +1,8 @@
+.container{
+  margin: 0;
+  padding: 0;
+}
+
+.itemLista{
+  list-style-type: none;
+}

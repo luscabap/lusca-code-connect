@@ -1,14 +1,12 @@
+import { CommentList } from "@/components/CommentList";
 import PostDetalhado from "@/components/PostDetalhado";
 import logger from "@/logger";
 import { Post } from "@/types/Post";
+import { redirect } from "next/navigation";
 import { remark } from "remark";
 import html from "remark-html";
 import db from "../../../../prisma/db";
-import NotFound from "@/app/not-found";
-import { redirect } from "next/navigation";
-import { Modal } from "@/components/Modal";
-import { ModalComment } from "@/components/ModalComment";
-import { useRef } from "react";
+import styles from "./pagePost.module.css";
 
 async function getPostBySlug(slug: string) {
   try {
@@ -18,7 +16,11 @@ async function getPostBySlug(slug: string) {
       },
       include: { 
         author: true,
-        comments: true
+        comments: {
+          include: {
+            author: true
+          }
+        }
       },
     });
 
@@ -41,7 +43,7 @@ async function getPostBySlug(slug: string) {
 const PagePost = async ({ params }: { params: { slug: string } }) => {
   const slug = await params.slug;
   const post: Post = await getPostBySlug(slug);
-
+  
   return (
     <>
         <PostDetalhado
@@ -54,7 +56,14 @@ const PagePost = async ({ params }: { params: { slug: string } }) => {
           slug={post.slug}
           likes={post.likes}
           comments={post.comments}
+          authorId={post.authorId}
+          createdAt={post.createdAt}
+          updatedAt={post.updatedAt}
         />
+        <div className={styles.containerComentarios}>
+          <h2 className={styles.tituloComentario}>Comentários</h2>
+          <CommentList comments={post.comments}/>
+        </div>
     </>
   );
 };

@@ -1,0 +1,9 @@
+.containerComentarios{
+  background-color: #888888;
+  padding: 32px 16px;
+}
+
+.tituloComentario{
+  font-size: 22px;
+  font-weight: 600;
+}

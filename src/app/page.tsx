@@ -44,7 +44,11 @@ async function getAllPosts(page: number, searchTerm: string | undefined): Promis
       orderBy: { id: "desc" },
       include: { 
         author: true,
-        comments: true
+        comments: {
+          include: {
+            author: true
+          }
+        }
       }
     });
     return { data: posts, prev, next }

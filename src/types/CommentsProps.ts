@@ -1,3 +1,6 @@
+import { AuthorProps } from "./AuthorProps"
+import { Post } from "./Post"
+
 export type CommentsProps = {
   id: number,
   text: string,
@@ -6,4 +9,5 @@ export type CommentsProps = {
   authorId: number,
   postId: number,
   parentId: number | null
+  author: AuthorProps
 }

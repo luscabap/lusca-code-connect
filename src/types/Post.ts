@@ -8,7 +8,10 @@ export type Post = {
   slug: string,
   body: string,
   markdown: string,
-  author: AuthorProps,
+  createdAt: Date,
+  updatedAt: Date,
+  authorId: number,
   likes: number,
+  author: AuthorProps,
   comments: CommentsProps[]
 }

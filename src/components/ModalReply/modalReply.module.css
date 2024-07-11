@@ -1,0 +1,60 @@
+.botaoResponder{
+  color: #171D1F;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.botaoResponderResposta{
+  margin-left: 2rem;
+  color: #171D1F;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.containerForm{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 100%;
+  gap: 24px;
+}
+
+.textArea{
+  width: 100%;
+  background-color: #BCBCBC;
+  border-radius: 8px;
+  height: 96px;
+  border: none;
+  padding: 16px;
+  font-size: 18px;
+  color: #3E3E3F;
+  text-align: start;
+}
+
+.textArea:focus{
+  outline: none;
+  border: none;
+}
+
+.botaoEnviarResposta{
+  background-color: #81FE88;
+  border: none;
+  width: 155px;
+  height: 51px;
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #132E35;
+  font-weight: 600;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}

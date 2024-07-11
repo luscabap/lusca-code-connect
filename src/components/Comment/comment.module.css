@@ -4,3 +4,11 @@
   justify-content: flex-start;
   gap: 8px;
 }
+
+.containerResposta {
+  margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}

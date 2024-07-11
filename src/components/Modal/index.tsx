@@ -6,9 +6,10 @@ import styles from "./modal.module.css";
 
 interface IModalProps {
   children: JSX.Element,
+  texto?: string
 }
 
-export const Modal = forwardRef(({ children }: IModalProps, ref) => {
+export const Modal = forwardRef(({ children, texto = "Deixe seu comentário sobre o post:" }: IModalProps, ref) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   
@@ -34,7 +35,7 @@ export const Modal = forwardRef(({ children }: IModalProps, ref) => {
         <button onClick={closeModal} className={styles.botaoFechar}>X</button>
       </header>
       <main>
-        <h2 className={styles.subtitulo}>Deixe seu comentário sobre o post:</h2>
+        <h2 className={styles.subtitulo}>{texto}</h2>
         {children}
       </main>
     </dialog>

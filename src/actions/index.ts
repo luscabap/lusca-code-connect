@@ -1,9 +1,9 @@
 "use server"
 
 import { Post } from "@/types/Post";
-import db from "../../prisma/db";
-import { Prisma } from "@prisma/client";
 import { revalidatePath } from "next/cache";
+import db from "../../prisma/db";
+import { CommentsProps } from "@/types/CommentsProps";
 
 export async function incrementThumbsUp(post: Post){
 
@@ -20,7 +20,7 @@ export async function incrementThumbsUp(post: Post){
 
   revalidatePath("/")
   revalidatePath(`/${post.slug}`)
-}
+};
 
 export async function postComment(post: Post, formData: FormData){
   const author = await db.user.findFirst({
@@ -39,4 +39,31 @@ export async function postComment(post: Post, formData: FormData){
 
   revalidatePath("/")
   revalidatePath(`/${post.slug}`)
+};
+
+export async function postReply(parent: CommentsProps, formData: FormData){
+  const author = await db.user.findFirst({
+    where: {
+      username: 'anabeatriz_dev'
+    }
+  })
+
+  const post = await db.post.findFirst({
+    where: {
+      id: parent.postId
+    }
+  })
+
+
+  await db.comment.create({
+    data: {
+      text: formData.get('text') as string,
+      authorId: author!.id,
+      postId: post!.id,
+      parentId: parent.parentId ?? parent.id
+    }
+  })
+
+  revalidatePath("/")
+  revalidatePath(`/${post!.slug}`)
 }

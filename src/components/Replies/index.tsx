@@ -1,5 +1,7 @@
+"use client"
+
 import { CommentsProps } from "@/types/CommentsProps";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Comment } from "../Comment";
 import { ModalReply } from "../ModalReply";
 import styles from "./replies.module.css";
@@ -10,6 +12,20 @@ interface IReplies {
 
 export const Replies = ({ comment }: IReplies) => {
   const [showReplies, setShowReplies] = useState(false);
+  const [replies, setReplies] = useState<CommentsProps[]>([]);
+
+  async function fetchData() {
+    const response = await fetch(`/api/comment/${comment.id}/replies`);
+    const data = await response.json();
+    setReplies(data);
+  }
+
+  useEffect(() => {
+    if (showReplies){
+      fetchData()
+    }
+  }, [showReplies])
+
   return (
     <div className={styles.container}>
       <div className={styles.containerResposta} onClick={() => setShowReplies(!showReplies)}>
@@ -22,7 +38,7 @@ export const Replies = ({ comment }: IReplies) => {
       </div>
       {showReplies && (
         <ul className={styles.containerLista}>
-          {comment.children!.map((reply) => (
+          {replies!.map((reply) => (
             <li key={reply.id} className={styles.itemLista}>
               <Comment comment={reply} />
               <ModalReply comment={reply} />

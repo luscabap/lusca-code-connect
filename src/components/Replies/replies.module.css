@@ -1,0 +1,29 @@
+.botaoRespostas{
+  background-color: transparent;
+  border: none;
+  color: #171D1F;
+  font-weight: 400;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.tracado{
+  height: 2px;
+  background-color: #171D1F;
+  width: 32px;
+}
+
+.containerResposta{
+  display: inline-flex;
+  margin: 12px 0;
+  align-items: center;
+  cursor: pointer;
+}
+
+.containerLista{
+  margin-bottom: 12px;
+}
+
+.itemLista{
+  list-style-type: none;
+}

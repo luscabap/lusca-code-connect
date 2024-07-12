@@ -5,4 +5,5 @@
 
 .itemLista{
   list-style-type: none;
+  border-bottom: 1px solid #3E3E3F;
 }

@@ -13,7 +13,8 @@ interface IModalReplyProps {
 }
 
 type useRefModalProps = {
-  openModal: () => void
+  openModal: () => void,
+  closeModal: () => void
 }
 
 export const ModalReply = ({ comment }: IModalReplyProps) => {
@@ -23,20 +24,25 @@ export const ModalReply = ({ comment }: IModalReplyProps) => {
     modalRef.current!.openModal();
   }
 
+  const closeModal = () => {
+    modalRef.current!.closeModal();
+  }
+
   const action = postReply.bind(null, comment);
 
   return (
-    <div className={  styles.container}>
+    <div className={styles.container}>
+      <button onClick={openModal} className={comment.parentId === null ? styles.botaoResponder : styles.botaoResponderResposta}>Responder</button>
+      
       <Modal ref={modalRef} texto="Digite a sua resposta">
         <form action={action} className={styles.containerForm}>
-          <div>
+          <div className={styles.containerComentario}>
             <Comment comment={comment}/>
           </div>
           <textarea name="text" className={styles.textArea} placeholder="Digite o seu comentário"></textarea>
-          <button className={styles.botaoEnviarResposta}>Responder<ArrowFoward/></button>
+          <button className={styles.botaoEnviarResposta} onClick={closeModal}>Responder<ArrowFoward/></button>
         </form>
       </Modal>
-      <button onClick={openModal} className={comment.parentId === null ? styles.botaoResponder : styles.botaoResponderResposta}>Responder</button>
     </div>
   )
 };

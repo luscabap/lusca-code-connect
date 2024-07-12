@@ -8,6 +8,7 @@ export type CommentsProps = {
   updatedAt: Date,
   authorId: number,
   postId: number,
-  parentId: number | null
-  author: AuthorProps
+  parentId: number | null,
+  author: AuthorProps,
+  children?: CommentsProps[]
 }
